@@ -1,0 +1,46 @@
+name: ecommerce_app
+description: Flutter eCommerce app (part of the Complete Flutter Course Bundle)
+
+# Prevent accidental publishing to pub.dev.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_launcher_icons: 0.9.2
+  flutter_lints: 1.0.4
+  flutter_localizations:
+    sdk: flutter
+  intl: 0.17.0
+  flutter_layout_grid: 1.0.3
+  flutter_rating_bar: 4.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# Custom app icon. For more info see: https://pub.dev/packages/flutter_launcher_icons
+flutter_icons:
+  ios: true
+  android: true
+  remove_alpha_ios: true
+  image_path_ios: "assets/app-icon.png"
+  image_path_android: "assets/app-icon.png"
+  # https://github.com/fluttercommunity/flutter_launcher_icons/issues/144
+  adaptive_icon_background: "assets/app-icon-background.png"
+  adaptive_icon_foreground: "assets/app-icon-foreground.png"
+  
+flutter:
+  uses-material-design: true
+
+  # Enable generation of localized Strings from arb files.
+  generate: true
+
+  assets:
+    # Add all product images
+    - assets/products/
