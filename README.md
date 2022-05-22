@@ -1,16 +1,12 @@
-# Flutter eCommerce App
+# Flutter 3 Domain Driven Development with Riverpod
 
-This is the official Flutter Project for this course:
 
-- [Complete Flutter Course Bundle](https://codewithandrea.com/courses/complete-flutter-bundle/)
+## Introduction
 
-This will include a full-stack eCommerce app using Flutter & Firebase:
+### What is Domain Driven Design?
 
-![eCommerce App Preview](/.github/images/ecommerce-app-preview.png)
+##### Domain Driven Design (DDD) is a software architecture pattern that focuses on the domain of the application.
 
-A Flutter web preview of the app can be found here:
-
-- [Flutter Web Demo](https://my-shop-ecommerce-stg.web.app/)
 
 
 ### [LICENSE: MIT](../LICENSE.md)
