@@ -2,16 +2,31 @@ import 'package:ecommerce_app/src/constants/test_products.dart';
 import 'package:ecommerce_app/src/features/products/domain/product.dart';
 
 class FakeProductsRepository {
-
   FakeProductsRepository._();
 
   static FakeProductsRepository instance = FakeProductsRepository._();
 
+  final List<Product> _products = kTestProducts;
+
   List<Product> getProducts() {
-    return kTestProducts;
+    return _products;
   }
 
   Product? getProductById(String id) {
-    return kTestProducts.firstWhere((product) => product.id == id);
+    return _products.firstWhere((product) => product.id == id);
+  }
+
+  Future<List<Product>> fetchProducts() async {
+    // await Future.delayed(Duration(seconds: 1));
+    return _products;
+  }
+
+  Stream<List<Product>> watchProducts() {
+    return Stream.value(_products);
+  }
+
+  Stream<Product?> watchProductById(String id) {
+    return watchProducts()
+        .map((products) => products.firstWhere((product) => product.id == id));
   }
 }
