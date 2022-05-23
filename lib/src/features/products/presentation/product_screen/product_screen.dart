@@ -1,3 +1,4 @@
+import 'package:ecommerce_app/src/common_widgets/async_value_widget.dart';
 import 'package:ecommerce_app/src/common_widgets/error_message_widget.dart';
 import 'package:ecommerce_app/src/constants/test_products.dart';
 import 'package:ecommerce_app/src/features/cart/presentation/add_to_cart/add_to_cart_widget.dart';
@@ -31,7 +32,7 @@ class ProductScreen extends ConsumerWidget {
       body: Consumer(
         builder: (context, ref, _) {
           final productValue = ref.watch(productProvider(productId));
-          return productValue.when(
+          return AsyncValueWidget<Product?>(
             data: (product) => product == null
                 ? EmptyPlaceholderWidget(
                     message: 'Product not found'.hardcoded,
@@ -45,12 +46,7 @@ class ProductScreen extends ConsumerWidget {
                       ProductReviewsList(productId: productId),
                     ],
                   ),
-            error: (e, st) => Center(
-              child: ErrorMessageWidget(e.toString()),
-            ),
-            loading: () => const Center(
-              child: CircularProgressIndicator(),
-            ),
+            asyncValue: productValue,
           );
         },
       ),
