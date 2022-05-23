@@ -30,8 +30,8 @@ class FakeAuthRepository {
   }
 
   Future<void> signOut() async {
-    await Future.delayed(const Duration(seconds: 3));
-    throw Exception('Connection error');
+    // await Future.delayed(const Duration(seconds: 3));
+    // throw Exception('Connection error');
     _authState.value = null;
   }
 
