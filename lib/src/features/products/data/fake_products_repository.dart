@@ -32,17 +32,18 @@ class FakeProductsRepository {
 final productsRepositoryProvider =
     Provider<FakeProductsRepository>((_) => FakeProductsRepository());
 
-final productsStreamProvider = StreamProvider<List<Product>>((ref) {
+final productsStreamProvider = StreamProvider.autoDispose<List<Product>>((ref) {
   final productRepository = ref.watch(productsRepositoryProvider);
   return productRepository.watchProducts();
 });
 
-final productsFutureProvider = FutureProvider<List<Product>>((ref) {
+final productsFutureProvider = FutureProvider.autoDispose<List<Product>>((ref) {
   final productRepository = ref.watch(productsRepositoryProvider);
   return productRepository.fetchProducts();
 });
 
-final productProvider = StreamProvider.family<Product?, String>((ref, id) {
+final productProvider =
+    StreamProvider.autoDispose.family<Product?, String>((ref, id) {
   final productRepository = ref.watch(productsRepositoryProvider);
   return productRepository.watchProductById(id);
 });
